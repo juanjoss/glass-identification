@@ -20,8 +20,19 @@ class FCLayer(Layer):
         # input_shape: number of input neurons
         # output_shape: number of output neurons
 
-        self.weights = np.random.rand(input_shape, output_shape) - 0.5
-        self.bias = np.random.rand(1, output_shape) - 0.5
+        self.weights = np.random.rand(input_shape, output_shape)
+        self.bias = np.random.rand(1, output_shape)
+
+        self.temp_weihgts = np.copy(self.weights)
+        self.temp_bias = np.copy(self.bias)
+
+    def save_weights(self):
+        self.temp_weihgts = np.copy(self.weights)
+        self.temp_bias = np.copy(self.bias)
+    
+    def restore_weights(self):
+        self.weights = self.temp_weihgts
+        self.bias = self.temp_bias
 
     def forward_pass(self, input_data):
         self.input_data = input_data
