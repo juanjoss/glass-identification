@@ -44,10 +44,11 @@ class FCLayer(Layer):
         # compute error
         input_error = np.dot(output_error, self.weights.T)
         weights_error = np.dot(self.input_data.T, output_error)
+        bias_error = self.bias * output_error
 
         # update parameters
         self.weights -= learning_rate * weights_error
-        self.bias -= learning_rate * output_error
+        self.bias -= learning_rate * bias_error
 
         return input_error
 

@@ -71,6 +71,11 @@ class Network():
 
             if (i+1) % update_lr_epochs == 0:
                 # save network state
+                if k == 0:
+                    for i in range(len(self.layers)):
+                        if i % 2 == 0:
+                            self.layers[i].save_weights()
+                
                 if k >= steps:
                     learning_rate += 0.01
 
