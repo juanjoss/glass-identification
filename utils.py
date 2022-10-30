@@ -43,16 +43,16 @@ def read_data():
 
     y_train_representation = []
     for i in range(len(y_train)):
-        temp = np.zeros((1, 7))
-        temp[0][int(y_train[i] * 7) - 1] = 1
+        temp = np.zeros((1, 6))
+        temp[0][int(y_train[i] * 6) - 1] = 1
         y_train_representation.append(temp)
 
     x_test = [np.array([x]) for x in x_test]
 
     y_test_representation = []
     for i in range(len(y_test)):
-        temp = np.zeros((1, 7))
-        temp[0][int(y_test[i] * 7) - 1] = 1
+        temp = np.zeros((1, 6))
+        temp[0][int(y_test[i] * 6) - 1] = 1
         y_test_representation.append(temp)
 
     return x_train, y_train_representation, x_test, y_test_representation

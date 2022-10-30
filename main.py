@@ -11,7 +11,7 @@ if __name__ == "__main__":
     network = Network()
     network.layer(layer=FCLayer(9, 6))
     network.layer(layer=ActivationLayer(sigmoid, sigmoid_prime))
-    network.layer(layer=FCLayer(6, 7))
+    network.layer(layer=FCLayer(6, 6))
     network.layer(layer=ActivationLayer(relu, relu_prime))
 
     # train
